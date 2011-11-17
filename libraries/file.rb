@@ -4,7 +4,7 @@ class Chef
       def include?(str)
         return false unless ::File.exists?(@path)
 
-        file_content = ::File.open(@path).read
+        file_content = IO.read @path
         if file_content =~ /#{str}/
           Chef::Log.info("file[#{@path}] contains the string '#{str}'")
           true
@@ -16,7 +16,7 @@ class Chef
 
       def replace(str, str2)
         Chef::Log.info("replacing '#{str}' with '#{str2}' at #{@path}")
-        old_content = ::File.open(@path).read
+        old_content = IO.read @path
         content old_content.gsub(str, str2)
       end
     end
