@@ -1,4 +1,4 @@
-action :replace # and possibly more
+actions :replace # and possibly more
 
 attribute :name, :kind_of => String, :name_attribute => true
 attribute :owner, :kind_of => String
