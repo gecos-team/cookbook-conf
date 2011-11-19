@@ -1,11 +1,15 @@
 action :replace do
   file new_resource.name do
-    old_content = IO.read new_resource.name
-    if old_content =~ /#{new_resource.before}/
-      content old_content.gsub(new_resource.before, new_resource.after)
+    if ::File.exists? new_resource.name
+      old_content = IO.read new_resource.name
+      if old_content =~ /#{new_resource.before}/
+        content old_content.gsub(new_resource.before, new_resource.after)
+      end
+      owner new_resource.owner
+      group new_resource.group
+    else
+      Chef::Log.debug("replace action couldn't be performed. #{new_resource.name} does not exist")
     end
-    owner new_resource.owner
-    group new_resource.group
   end
 end
 
