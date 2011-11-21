@@ -1,18 +1,17 @@
 Description
 ===========
 
-This cookbok install a policy of shares (network shared directories) to a specific user of a node.
+This cookbok install resources and providers to manage configuration files.
 
-The cookbook ships the policies and install a script into the node that will make the shares availables by the user.
+You can add the recipe `conf` to a node _runlist_, so all the recipes from
+that runlist can use the resources and providers.
+
 
 Requirements
 ============
 
 Attributes
 ==========
-
-* `node['user']` - Name of the user to apply the policies
-* `node['shares']` - List of shares and mount points
 
 Usage
 =====
