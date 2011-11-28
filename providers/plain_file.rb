@@ -1,4 +1,3 @@
-require 'chef/util/file_edit'
 
 action :replace do
   if ::File.exists? new_resource.name
