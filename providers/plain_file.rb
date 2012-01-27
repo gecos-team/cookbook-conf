@@ -4,6 +4,7 @@ action :replace do
     old_content = Chef::Util::FileEdit.new new_resource.name
     old_content.search_file_replace(new_resource.before, new_resource.after)
     old_content.write_file
+    new_resource.updated_by_last_action(true)
   else
     Chef::Log.debug("replace action couldn't be performed. #{new_resource.name} does not exist")
   end
@@ -22,6 +23,7 @@ action :add do
       action :create
     end
   end
+  new_resource.updated_by_last_action(true)
 end
 
 action :remove do
@@ -29,6 +31,7 @@ action :remove do
     new_file = Chef::Util::FileEdit.new new_resource.name
     new_file.search_file_delete_line(new_resource.pattern)
     new_file.write_file
+    new_resource.updated_by_last_action(true)
   end
 end
 
