@@ -7,3 +7,8 @@ attribute :before, :kind_of => String
 attribute :after, :kind_of => String
 attribute :new_line, :kind_of => String
 attribute :pattern, :kind_of => String
+
+def initialize(*args)
+  super
+  @action = :add
+end
