@@ -15,6 +15,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# NOTE: This is a patched version of chef/lib/chef/utils/file_edit.rb
+#   This version is needed to patch monkey the original until the patch
+#   be merged at the master.
+#   Bug realed: CHEF-2740
+
 class Chef
   class Util
     class FileEdit
