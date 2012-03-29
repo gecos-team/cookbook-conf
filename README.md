@@ -21,8 +21,6 @@ Requirements
 
 In order to use this LWRP from your cookbook or recipe you need to add
 this cookbook as a dependency at the `metadata.rb` file.
-But as long as `chef-client` doesn't manage the dependencies, you'll need
-to add the cookbook also to the node's `run_list`.
 
 After doing that you can do things like:
 
